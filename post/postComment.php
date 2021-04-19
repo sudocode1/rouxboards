@@ -61,7 +61,7 @@ if (
     $conn->query("INSERT INTO comments (postId, userId, commentText, commentId) VALUES ($postId, $userId, '$text', $commentId)");
     
     // send help
-    $commentsForUI = $conn->query("SELECT * FROM comments ORDER BY commentId DESC");
+    $commentsForUI = $conn->query("SELECT * FROM comments WHERE postId = $postId ORDER BY commentId DESC");
     $postForUI = $conn->query("SELECT * FROM posts WHERE postId = $postId")->fetch_assoc();
     
 } else {

@@ -63,7 +63,7 @@ Comment <br>
 <br>
 
 <?php 
-$commentsForUI = $conn->query("SELECT * FROM comments ORDER BY commentId DESC");
+$commentsForUI = $conn->query("SELECT * FROM comments WHERE postId = $postQuery ORDER BY commentId DESC ");
 if ($commentsForUI->num_rows > 0) {
       while($row = $commentsForUI->fetch_assoc()) {
         $commenterUserId = $row['userId'];
